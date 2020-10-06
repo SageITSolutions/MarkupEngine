@@ -14,7 +14,7 @@
     "minimum-stability": "stable",
     "autoload": {
         "psr-0": {
-            "MarkupEngine\\MarkupEngine": "lib/"
+            "MarkupEngine\\MarkupEngine\\": "lib/"
         }
     }
 }
