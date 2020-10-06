@@ -10,9 +10,7 @@
             "email": "daniel.davis@sageitsolutions.net"
         }
     ],
-    "require": {
-        "php": ">=7.0"
-    },
+    "require": {},
     "minimum-stability": "stable",
     "autoload": {
         "psr-0": {
