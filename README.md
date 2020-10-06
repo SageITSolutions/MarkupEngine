@@ -5,7 +5,7 @@
     <img src="images/logo.png" alt="Logo" width="445" height="120">
   </a>
 
-  <h2 align="center">MarkupEngine</h2>
+  <h1 align="center">MarkupEngine</h1>
 
   <p align="center">
     Allows you to create HTML markup tags that are rendered via class extensions to the included CustomMarkup Class.
