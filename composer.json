@@ -2,17 +2,18 @@
     "name": "sageit/markupengine",
     "description": "Allows you to create HTML custom tags that aids in templating and providing easy to use extendable functionality that designers find easy to work with.",
     "keywords": ["html","tags","custom-tags","custom tags","markup"],
+    "type": "library",
     "license": ["MIT"],
     "authors": [
         {
             "name": "Daniel S. Davis",
-            "email": "daniel.davis@sageitsolutions.net",
-			"role": "Owner"
+            "email": "daniel.davis@sageitsolutions.net"
         }
-	],
+    ],
     "require": {
         "php": ">=7.0"
     },
+    "minimum-stability": "stable",
     "autoload": {
         "psr-0": {
             "MarkupEngine\\MarkupEngine": "lib/"
