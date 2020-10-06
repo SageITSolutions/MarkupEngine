@@ -76,10 +76,11 @@ This project consists of an included MarkupEngine class which parses custom HTML
 ### Example Tag.
 
 ```html
-<header some="attribute">
-    This is an example block of code. <br />
+<header title="attribute">
+    This is an example block of code.
     This body would return as the Tag's "Content" while some would be an accessible attribute in the header class.
-</header>`
+</header>
+<youtube src="QR-tZqiKCrg"/>
 ```
 
 ### Integrated Example
@@ -106,7 +107,7 @@ $ME = new MarkupEngine([]
     <!-- Date: 2020-10-06 -->
 </head>
 <body> 
-    <youtube id="HTr778JctJE" />
+    <youtube src="QR-tZqiKCrg"/>
 </body>
 </html>
 ```
@@ -116,24 +117,22 @@ $ME = new MarkupEngine([]
 ```php
 <?php
 namespace MarkupEngine;
-	
-class Header extends CustomMarkup{
 
-    public function render(){
-        $objID = $this->id; //alias for $this->attribute->id
-        $Year = date('Y');
-        $example = "Simple Example";//$tag['attributes']['example_name'];
-        return <<< HTML
-                <object width="480" height="295" id = "{$objID}">
-                        <param name="movie" value="http://www.youtube.com/v/{$objID}=en&fs=1 5"></param>
-                        <param name="allowFullScreen" value="true"></param>
-                        <param name="allowscriptaccess" value="always"></param>
-                        <embed src="http://www.youtube.com/v/{$objID}=en&fs=1 5" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295">
-                        </embed>
-                </object>
+class Youtube extends CustomMarkup{
+
+	public function render(){
+		return <<< HTML
+			<iframe width="560" height="315" 
+				src="https://www.youtube.com/embed/{$this->src}" 
+				frameborder="0" 
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+				allowfullscreen>
+			</iframe>
+
 HTML;
-    }
-}
+		}
+	}
+?>
 ````
 
 **Resulting output:**
@@ -150,13 +149,12 @@ HTML;
     <!-- Date: 2020-10-06 -->
 </head>
 <body> 
-    <object width="480" height="295" id = "HTr778JctJE">
-            <param name="movie" value="http://www.youtube.com/v/HTr778JctJE=en&fs=1 5"></param>
-            <param name="allowFullScreen" value="true"></param>
-            <param name="allowscriptaccess" value="always"></param>
-            <embed src="http://www.youtube.com/v/HTr778JctJE=en&fs=1 5" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295">
-            </embed>
-    </object> 
+    <iframe width="560" height="315" 
+	src="https://www.youtube.com/embed/QR-tZqiKCrg" 
+	frameborder="0" 
+	allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+	allowfullscreen>
+</iframe>
 </body> 
 </html>
 ```
