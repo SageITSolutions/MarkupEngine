@@ -10,11 +10,13 @@
             "email": "daniel.davis@sageitsolutions.net"
         }
     ],
-    "require": {},
+    "require": {
+        "php" : "^7.0"
+    },
     "minimum-stability": "stable",
     "autoload": {
         "psr-0": {
-            "MarkupEngine\\MarkupEngine\\": "lib/"
+            "MarkupEngine\\MarkupEngine": "lib/"
         }
     }
 }
