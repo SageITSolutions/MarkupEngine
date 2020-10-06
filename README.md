@@ -1,9 +1,79 @@
-#MarkupEngine
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/SageDavis/MarkupEngine">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-Allows you to create HTML markup tags that are rendered via class extensions to the included CustomMarkup Class.
+  <h3 align="center">MarkupEngine</h3>
+
+  <p align="center">
+    Allows you to create HTML markup tags that are rendered via class extensions to the included CustomMarkup Class.
 Markup intended for simple visual elements reaused throughout code and should not inlcude Database calls (separate of View and Modal)
+    <br />
+    <a href="https://github.com/SageDavis/MarkupEngine"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/SageDavis/MarkupEngine">View Demo</a>
+    ·
+    <a href="https://github.com/SageDavis/MarkupEngine/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/SageDavis/MarkupEngine/issues">Request Feature</a>
+  </p>
+</p>
 
-##Example Tag.
+
+
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
+
+* [About the Project](#about-the-project)
+  * [Built With](#built-with)
+* [Getting Started](#getting-started)
+  * [Installation](#installation)
+* [Usage](#usage)
+* [Roadmap](#roadmap)
+* [Contributing](#contributing)
+* [License](#license)
+* [Contact](#contact)
+* [Acknowledgements](#acknowledgements)
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+### Built With
+
+* [vscode](https://code.visualstudio.com/)
+* [php 7.3.5](https://www.php.net/releases/7_3_5.php)
+* [php Herdoc](https://www.php.net/manual/en/language.types.string.php#language.types.string.syntax.heredoc)
+
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+To get a local copy up and running follow these simple steps.
+
+### Installation
+
+1. Clone the repo
+```sh
+git clone https://github.com/SageDavis/MarkupEngine.git
+```
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+This project consists of an included MarkupEngine class which parses custom HTML tags into valid HTML.
+
+**Components:**
+* MarkupEngine.php class (parser)
+* CustomMarkup.php class (abstract base class used by parser)
+* tags/mytagname.php    (customizable folder containing tag classes which must extend CustomMarkup)
+
+### Example Tag.
 
 ```html
 <header some="attribute">
@@ -12,7 +82,7 @@ Markup intended for simple visual elements reaused throughout code and should no
 </header>`
 ```
 
-##Integrated Example
+### Integrated Example
 
 ```php
 <?php
@@ -64,7 +134,6 @@ class Header extends CustomMarkup{
 HTML;
     }
 }
-
 ````
 
 **Resulting output:**
@@ -91,3 +160,44 @@ HTML;
 </body> 
 </html>
 ```
+
+<!-- ROADMAP -->
+## Roadmap
+
+See the [open issues](https://github.com/SageDavis/MarkupEngine/issues) for a list of proposed features (and known issues).
+
+
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+
+
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+
+
+<!-- CONTACT -->
+## Contact
+
+Sage IT Solutions - [Email](mailto:daniel.davis@sageitsolutions.net)
+
+Project Link: [https://github.com/SageDavis/MarkupEngine](https://github.com/SageDavis/MarkupEngine)
+
+
+
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
+
+* [buggedcom Original Lib](https://github.com/buggedcom/PHP-Custom-Tags)
