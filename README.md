@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/SageDavis/MarkupEngine">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo.png" alt="Logo" width="445" height="120">
   </a>
 
   <h3 align="center">MarkupEngine</h3>
