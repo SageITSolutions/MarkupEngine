@@ -9,6 +9,7 @@
                   $placeholder  = "",       // Used to represent Item
                   $attributes   = [],       // extensible items
                   $inlineClose  = false,    // Defines if tag is <tag /> format
+                  $tagclose     = ">",      // Used in defining tag format
                   $parsed       = false,
                   $innermarkers = "",       
                   $tagSearch    = "";       // Regex Search Pattern
@@ -20,8 +21,11 @@
             $this->placeholder  = '------@@%'.$instance.'-'.$index.'%@@------';
             $this->block        = $strBody;
             $this->name         = strtolower(str_replace(__NAMESPACE__."\\","",get_class($this)));
-            $this->inlineClose  = substr($strBody, -2) == '/>';
-            $this->tagSearch    = $this->inlineClose? "/<($this->name)\s*(.*)\s*\/>/" : "/<($this->name)\s*(.*)\s*>/";
+            if(substr($strBody, -2) == '/>'){
+                $this->inlineClose = true;
+                $this->tagclose = "\/>";
+            }
+            $this->tagSearch    = "/<($this->name)\s*([^$this->tagclose]*)/";
             $this->build($strBody);
         }
 
@@ -42,7 +46,7 @@
                 if(!$this->inlineClose) {
                     $begin_len      = strlen($matches[0][0]);
                     $end_len        = strlen("</".$this->name.">");
-                    $this->content  = substr($strBody, $begin_len, strlen($matches[0][0])-$begin_len-$end_len);
+                    $this->content  = substr($strBody, $begin_len+1, strlen($matches[0][0])-$begin_len-$end_len);
                 }
                 
                 $attributes = [];
@@ -102,6 +106,3 @@
     {       
         public function render(){}
     }
-
-
-    
