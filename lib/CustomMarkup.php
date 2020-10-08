@@ -11,6 +11,7 @@
                   $inlineClose  = false,    // Defines if tag is <tag /> format
                   $tagclose     = ">",      // Used in defining tag format
                   $parsed       = false,
+                  $parsedcontent= "",
                   $innermarkers = "",       
                   $tagSearch    = "";       // Regex Search Pattern
         
@@ -94,7 +95,7 @@
          * @param string $val value to apply
          */
         public function __set($var, $val){
-            if(in_array($var,['parsed','block','content','placeholder','innermarkers'])){
+            if(in_array($var,['parsed','parsedcontent','block','content','placeholder','innermarkers'])){
                 $this->$var = $val ?? null;
             }
         }
@@ -104,5 +105,8 @@
 
     class CustomMarkupConcrete extends CustomMarkup
     {       
-        public function render(){}
+        public function render(){ return $this->content; }
     }
+
+
+    
