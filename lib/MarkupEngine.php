@@ -95,9 +95,10 @@
          */
         protected function autoloadClasses () {
             spl_autoload_register(function ($class){
-                $namespace = __NAMESPACE__;
-                $class = str_replace($namespace.'\\', '', $class);
-                include $this->_options['tag_directory'].strtolower($class).".php";
+                $namespace  = __NAMESPACE__;
+                $class      = str_replace($namespace.'\\', '', $class);
+                $file       = $this->_options['tag_directory'].strtolower($class).".php";
+                include $file;
             });
         }
         
@@ -187,7 +188,7 @@
             $tags = $this->processTags($source);    // Scrub for all tags
             if(count($tags) > 0) {
                 $output = $this->renderTags($tags); // display output for all tags
-                if($this->_options['echo_output'] === true) {
+                if($this->_options['echo_output'] === true) {   
                     echo $output;
                 }
                 return $output;
@@ -223,8 +224,8 @@
             }    
             $tag_data = $tag->render();
 
-            if(empty($tag_data) === false) {    // Find all buried tags
-                if($this->_options['sniff_for_buried_tags'] && strpos($tag_data, '<'.'ct:') !== false) {
+            if($tag_data) {    // Find all buried tags
+                if($this->_options['sniff_for_buried_tags'] && $this->getLastTag($tag_data) !== false) {
                     // we have the possibility of buried tags so lets parse
                     // but first make sure the output isn't echoed out
                     $old_echo_value = $this->_options['echo_output'];
@@ -273,7 +274,7 @@
          */
         private function renderTags($tags){
             if(count($tags) > 0){   
-                foreach($tags as $key=>$tag) { 
+                foreach($tags as $key=>&$tag) { 
                     // Loop through Tags
                     if($tag->attributes->delayed ?? false) continue;
                     if(($has_buried = preg_match_all('!------@@%([0-9\-]+)%@@------!', $tag->content, $info)) > 0) {   
@@ -284,10 +285,7 @@
                         foreach ($indexs as $key2=>$index){
                             $index_parts = explode('-', $index);
                             $tag_index = array_pop($index_parts);
-                            if($tags[$tag_index]->parsed){
-                                $replacements[$key2] = $tags[$tag_index]->parsed;
-                            }
-                            else {   
+                            if(!$tags[$tag_index]->parsed){  
                                 if($tags[$tag_index]->block) {
                                     $block = preg_replace('/ delayed="true"/', '', $tags[$tag_index]->block, 1);
                                     if($tag->block) {
@@ -296,21 +294,25 @@
                                     $tag->content = str_replace($containers[$key2], $block, $tag->content); 
                                 }
                             }
+                            else { 
+                                $replacements[$key2] = $tags[$tag_index]->parsedcontent;
+                            }
                         }
                         $tags[$key]->innermarkers = $tag->innermarkers = $containers;
                     }
                     if($tag->name === '___text') {  // Plain Text (no rendering)
-                        $tags[$key]->parsed = $tag->content;
+                        $body = $tag->content;
                     }
                     else {                          // Tag for processing  
                         $body               = $this->renderTag($tag);
-                        $tags[$key]->parsed = $body;
                     }
-                    // update any buried tags within the parsed content
-                    $tags[$key]->parsed = $has_buried > 0 ? str_replace($containers, $replacements, $tags[$key]->parsed) : $tags[$key]->parsed;
+                    if($has_buried > 0){
+                        $body = str_replace($containers, $replacements, $body);
+                    }
+                    $tags[$key]->parsedcontent = $body;
+                    $tags[$key]->parsed = true;
                 }
-                
-                return $tags[$key]->parsed;
+                return $tags[$key]->parsedcontent;
             }
             return false;
         }
@@ -347,7 +349,7 @@
 
                 if(!$eot) { // No More Tags found
                     $Class =  __NAMESPACE__.'\\CustomMarkupConcrete';
-                    $tag   = new $Class($source, -1, -1);
+                    $tag   = new $Class($source, self::$_instance, count($tags));
                     array_push($tags, $tag);
                     break;
                 }
@@ -371,8 +373,12 @@
 
                     $tag_source     = substr($currentSource, 0, $TagClose);                                     //  Actual Tag Body
                     $Class          = __NAMESPACE__.'\\'.ucwords(str_replace(array('_', '-'), ' ', $tagName));  //  Tag Class
-                    if(!class_exists($Class)) $Class =  __NAMESPACE__.'\\CustomMarkupConcrete';
-                    $tag            = new $Class($tag_source, self::$_instance, count($tags));                  //  Tag
+                    if(!class_exists($Class)) {
+                        $tag        = new MarkupEngine\CustomMarkupConcrete($tag_source, self::$_instance, count($tags)); 
+                    }
+                    else {
+                        $tag        = new $Class($tag_source, self::$_instance, count($tags)); 
+                    }                 //  Tag
                     //$tag            = $this->_buildTag($tag_source, $tagName);
                     $index          = count($tags);
                     array_push($tags, $tag); // Append Tag (stdClass)
