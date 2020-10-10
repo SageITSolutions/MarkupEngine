@@ -58,9 +58,14 @@ To get a local copy up and running follow these simple steps.
 
 ### Installation
 
-1. Clone the repo
+**Git:**
 ```sh
 git clone https://github.com/SageDavis/MarkupEngine.git
+```
+
+**Composer:**
+```sh
+composer require sageit/markupengine
 ```
 
 <!-- USAGE EXAMPLES -->
