@@ -128,10 +128,10 @@
                         $filename = strtolower(str_replace(".php","",$filename));
                         $this->_searchtags[] = $filename;
                         if($searchRegex != "") $searchRegex .= "|";
-                        $searchRegex .= '<'.$filename;
+                        $searchRegex .= '\b'.$filename.'\b';
                     }
                 }
-                $this->_searchReg = $searchRegex;
+                $this->_searchReg = "<($searchRegex)";
             }
 
             if($this->_options['cache_tags'])
@@ -348,8 +348,7 @@
                 $eot = $this->getLastTag($currentSource);       // Postion of "Opener"
 
                 if(!$eot) { // No More Tags found
-                    $Class =  __NAMESPACE__.'\\CustomMarkupConcrete';
-                    $tag   = new $Class($source, self::$_instance, count($tags));
+                    $tag   = new CustomMarkupConcrete($source, self::$_instance, count($tags));
                     array_push($tags, $tag);
                     break;
                 }
@@ -374,7 +373,7 @@
                     $tag_source     = substr($currentSource, 0, $TagClose);                                     //  Actual Tag Body
                     $Class          = __NAMESPACE__.'\\'.ucwords(str_replace(array('_', '-'), ' ', $tagName));  //  Tag Class
                     if(!class_exists($Class)) {
-                        $tag        = new MarkupEngine\CustomMarkupConcrete($tag_source, self::$_instance, count($tags)); 
+                        $tag        = new CustomMarkupConcrete($tag_source, self::$_instance, count($tags)); 
                     }
                     else {
                         $tag        = new $Class($tag_source, self::$_instance, count($tags)); 

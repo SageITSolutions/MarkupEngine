@@ -51,7 +51,7 @@
                 }
                 
                 $attributes = [];
-                if(preg_match_all("!([_\-A-Za-z0-9]*)(=\")([^\"]*)(\")!is", $attribute_string, $attributes) > 0)
+                if(preg_match_all("!([_\-A-Za-z0-9]*)(=\"|=\')([^\"|\']*)(\"|\')!is", $attribute_string, $attributes) > 0)
                 {
                     foreach($attributes[0] as $key=>$row)
                     {
