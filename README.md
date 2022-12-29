@@ -1,3 +1,7 @@
+[![Latest Version](https://img.shields.io/github/release/SageITSolutions/MarkupEngine.svg?style=flat-square)](https://github.com/SageITSolutions/MarkupEngine/releases)
+[![Total Downloads](https://img.shields.io/packagist/dt/sageit/MarkupEngine.svg?style=flat-square)](https://packagist.org/packages/sageit/MarkupEngine)
+[![Software License](https://img.shields.io/packagist/l/sageit/MarkupEngine.svg?style=flat-square)](LICENSE)
+
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
