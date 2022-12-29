@@ -12,21 +12,16 @@
   [![License](http://poser.pugx.org/sageit/markupengine/license?style=plastic)](https://packagist.org/packages/sageit/markupengine)
   [![PHP Version Require](http://poser.pugx.org/sageit/markupengine/require/php?style=plastic)](https://packagist.org/packages/sageit/markupengine)
 
-  <p align="center">
+  <p>
     Allows you to create HTML markup tags that are rendered via class extensions to the included CustomMarkup Class.
-Markup intended for simple visual elements reaused throughout code and should not inlcude Database calls (separate of View and Modal)
-    <br />
-    <a href="https://github.com/SageITSolutions/MarkupEngine"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/SageITSolutions/MarkupEngine">View Demo</a>
-    ·
-    <a href="https://github.com/SageITSolutions/MarkupEngine/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/SageITSolutions/MarkupEngine/issues">Request Feature</a>
+    Markup intended for simple visual elements reaused throughout code and should not inlcude Database calls (separate of View and Modal)
   </p>
 
+  **[Explore the docs »](https://github.com/SageITSolutions/MarkupEngine)**
 
+  **[View Demo](https://github.com/SageITSolutions/MarkupEngine)** ·
+  **[Report Bug](https://github.com/SageITSolutions/MarkupEngine/issues)** ·
+  **[Request Feature](https://github.com/SageITSolutions/MarkupEngine/issues)**
 </div>
 
 
