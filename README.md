@@ -1,30 +1,33 @@
-[![Latest Version](https://img.shields.io/github/release/SageITSolutions/MarkupEngine.svg?style=flat-square)](https://github.com/SageITSolutions/MarkupEngine/releases)
-[![Total Downloads](https://img.shields.io/packagist/dt/sageit/MarkupEngine.svg?style=flat-square)](https://packagist.org/packages/sageit/MarkupEngine)
-[![Software License](https://img.shields.io/packagist/l/sageit/MarkupEngine.svg?style=flat-square)](LICENSE)
-
-<!-- PROJECT LOGO -->
-<br />
-<p align="center">
-  <a href="https://github.com/SageDavis/MarkupEngine">
+<div align="center">
+  <!-- PROJECT LOGO -->
+  <a href="https://github.com/SageITSolutions/MarkupEngine">
     <img src="images/logo.png" alt="Logo" width="445" height="120">
   </a>
 
   <h1 align="center">MarkupEngine</h1>
 
+  [![Latest Stable Version](http://poser.pugx.org/sageit/markupengine/v?style=plastic)](https://packagist.org/packages/sageit/markupengine) 
+  [![Total Downloads](http://poser.pugx.org/sageit/markupengine/downloads?style=plastic)](https://packagist.org/packages/sageit/markupengine) 
+  [![Latest Unstable Version](http://poser.pugx.org/sageit/markupengine/v/unstable?style=plastic)](https://packagist.org/packages/sageit/markupengine) 
+  [![License](http://poser.pugx.org/sageit/markupengine/license?style=plastic)](https://packagist.org/packages/sageit/markupengine)
+  [![PHP Version Require](http://poser.pugx.org/sageit/markupengine/require/php?style=plastic)](https://packagist.org/packages/sageit/markupengine)
+
   <p align="center">
     Allows you to create HTML markup tags that are rendered via class extensions to the included CustomMarkup Class.
 Markup intended for simple visual elements reaused throughout code and should not inlcude Database calls (separate of View and Modal)
     <br />
-    <a href="https://github.com/SageDavis/MarkupEngine"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/SageITSolutions/MarkupEngine"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/SageDavis/MarkupEngine">View Demo</a>
+    <a href="https://github.com/SageITSolutions/MarkupEngine">View Demo</a>
     ·
-    <a href="https://github.com/SageDavis/MarkupEngine/issues">Report Bug</a>
+    <a href="https://github.com/SageITSolutions/MarkupEngine/issues">Report Bug</a>
     ·
-    <a href="https://github.com/SageDavis/MarkupEngine/issues">Request Feature</a>
+    <a href="https://github.com/SageITSolutions/MarkupEngine/issues">Request Feature</a>
   </p>
-</p>
+
+
+</div>
 
 
 
@@ -64,7 +67,7 @@ To get a local copy up and running follow these simple steps.
 
 **Git:**
 ```sh
-git clone https://github.com/SageDavis/MarkupEngine.git
+git clone https://github.com/SageITSolutions/MarkupEngine.git
 ```
 
 **Composer:**
@@ -171,7 +174,7 @@ HTML;
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/SageDavis/MarkupEngine/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/SageITSolutions/MarkupEngine/issues) for a list of proposed features (and known issues).
 
 
 
@@ -200,7 +203,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Sage IT Solutions - [Email](mailto:daniel.davis@sageitsolutions.net)
 
-Project Link: [https://github.com/SageDavis/MarkupEngine](https://github.com/SageDavis/MarkupEngine)
+Project Link: [https://github.com/SageITSolutions/MarkupEngine](https://github.com/SageITSolutions/MarkupEngine)
 
 
 
